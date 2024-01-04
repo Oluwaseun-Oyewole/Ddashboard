@@ -1,16 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Outlet } from "react-router-dom";
+import Navbar from "../../components/navbar";
+import Sidebar from "../../components/sidebar";
 
 const DashboardLayout = () => {
-  // const location = useLocation();
-  // const getTitle = location.pathname.split("/");
-  // let getTitleEnum = getTitle[getTitle.length - 1];
-
   return (
     <>
-      <div>
-        <div>Sidebar</div>
-        <Outlet />
+      <div className="grid grid-flow-col grid-cols-[15%_auto] lg:grid-cols-[18%_auto] h-screen">
+        <Sidebar />
+        <div>
+          <Navbar />
+          <Outlet />
+        </div>
       </div>
     </>
   );

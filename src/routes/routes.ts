@@ -5,8 +5,8 @@ export const enum Routes {
   leaderBoard = "/app/leaderBoard",
   order = "/app/order",
   products = "/app/products",
-  saleReport = "/app/saleReport",
+  saleReport = "/app/sales",
   messages = "/app/messages",
-  settings = "/app/dashboard/settings",
+  settings = "/app/settings",
   signOut = "/app/signOut",
 }
