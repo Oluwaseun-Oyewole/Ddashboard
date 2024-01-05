@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import LeaderBoard from "../assets/svg/leaderboard.svg";
-import Messages from "../assets/svg/message.svg";
+// import Messages from "../assets/svg/message.svg";
 // import Order from "../assets/svg/orders.svg";
 // import Product from "../assets/svg/product.svg";
 // import SalesReport from "../assets/svg/sales.svg";
@@ -50,12 +50,12 @@ export const appRoutes: AppRoutesType[] = [
   //   icon: SalesReport,
   // },
 
-  {
-    id: 6,
-    path: Routes.messages,
-    name: "Messages",
-    icon: Messages,
-  },
+  // {
+  //   id: 6,
+  //   path: Routes.messages,
+  //   name: "Messages",
+  //   icon: Messages,
+  // },
   {
     id: 7,
     path: Routes.settings,

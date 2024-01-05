@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -52,7 +51,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-white py-5 lg:py-0 pb-5 lg:pb-3">
-      <nav className="grid grid-flow-col items-center justify-between lg:justify-normal grid-cols-[20%_auto] pt-7">
+      <nav className="grid grid-flow-col items-center justify-between lg:justify-normal grid-cols-[20%_auto] lg:pt-7">
         <div>
           <div>
             <Typography type="h1" className="md:text-xl" weight="medium">
@@ -114,31 +113,23 @@ const Navbar = () => {
           </div>
         </div>
 
-        <AnimatePresence mode="wait">
-          {clicked && (
-            <motion.div
-              className="w-full block lg:hidden absolute right-0 top-20 bg-white h-screen overflow-y-scroll"
-              variants={variant}
-              animate="visible"
-              initial="hidden"
-              exit="exit"
-            >
-              <div className="max-w-[90%] md:max-w-[95%] mx-auto">
-                <div className="my-7">
-                  <Search onSearch={onSearch} />
-                </div>
-
-                <div className="flex items-center gap-5 pb-4">
-                  <img src={CountryImage} alt="country" />
-                  <div>
-                    <Typography type="p" children="Eng (US)" weight="medium" />
-                  </div>
-                  <MdOutlineKeyboardArrowDown />
-                </div>
+        {clicked && (
+          <div className="w-full block lg:hidden absolute left-0 top-20 bg-white h-screen overflow-y-scroll z-[1000]">
+            <div className="max-w-[90%] md:max-w-[95%] mx-auto">
+              <div className="my-7">
+                <Search onSearch={onSearch} />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+              <div className="flex items-center gap-5 pb-4">
+                <img src={CountryImage} alt="country" />
+                <div>
+                  <Typography type="p" children="Eng (US)" weight="medium" />
+                </div>
+                <MdOutlineKeyboardArrowDown />
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   );
