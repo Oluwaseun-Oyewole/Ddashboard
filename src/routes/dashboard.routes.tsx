@@ -42,11 +42,6 @@ export const dashboardRoutes = () => {
       element: <Setting />,
     },
 
-    {
-      path: Routes.signOut,
-      element: <SignOut />,
-    },
-
     { path: "/app", element: <Navigate to={Routes.dashboard} replace /> },
   ] as RouteObject[];
 };

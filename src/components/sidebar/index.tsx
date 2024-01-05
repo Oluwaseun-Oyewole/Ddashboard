@@ -4,7 +4,7 @@ import { NavLinkComponent } from "../navLink";
 
 const Sidebar = () => {
   return (
-    <motion.aside className="relative">
+    <motion.aside className="relative shadow-sm">
       <NavLinkComponent routesArray={appRoutes} />
     </motion.aside>
   );

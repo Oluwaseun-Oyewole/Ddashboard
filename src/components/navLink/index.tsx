@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/svg/logo.svg";
+import { handleLogout } from "../../helper";
 import { AppRoutesType } from "../../routes/app.routes";
 import Typography from "../typography";
 
@@ -32,7 +33,7 @@ export const NavLinkComponent = ({ routesArray, className }: MenuProps) => {
   return (
     <div className="max-w-[70%] mx-auto h-screen sticky left-0 top-0">
       <div className="flex gap-5 items-center py-8">
-        <img src={Logo} alt="logo image" className="w-10" />
+        <img src={Logo} alt="logo image" className="hidden md:block w-10" />
         <Typography
           type="p"
           children="Dabang"
@@ -50,21 +51,34 @@ export const NavLinkComponent = ({ routesArray, className }: MenuProps) => {
                 animate="visible"
                 initial="hidden"
               >
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    [
-                      classNames(navItemClasses),
-                      "transition-all ease-in-out duration-200 text-[#737791] font-medium hover:text-black pt-6",
-                      isActive && "text-[#5D5FEF]",
-                    ]
-                      .filter(Boolean)
-                      .join(" ")
-                  }
-                >
-                  <img src={`${icon}`} className={`w-[20px]`} />
-                  <span className="hidden lg:block">{name}</span>
-                </NavLink>
+                {path === "/app/signOut" ? (
+                  <div
+                    className={classNames(
+                      navItemClasses,
+                      `transition-all ease-in-out duration-200 text-[#737791] font-medium hover:text-black pt-6 cursor-pointer`
+                    )}
+                    onClick={handleLogout}
+                  >
+                    <img src={`${icon}`} className="w-[15px] md:w-[20px]" />
+                    <span className="hidden lg:block">{name}</span>
+                  </div>
+                ) : (
+                  <NavLink
+                    to={path}
+                    className={({ isActive }) =>
+                      [
+                        classNames(navItemClasses),
+                        "transition-all ease-in-out duration-200 text-[#737791] font-medium hover:text-black pt-6",
+                        isActive && "text-[#5D5FEF]",
+                      ]
+                        .filter(Boolean)
+                        .join(" ")
+                    }
+                  >
+                    <img src={`${icon}`} className="w-[15px] md:w-[20px]" />
+                    <span className="hidden lg:block">{name}</span>
+                  </NavLink>
+                )}
               </motion.li>
             );
           })}

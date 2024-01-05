@@ -1,14 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { IoLogOutOutline, IoNotifications } from "react-icons/io5";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useLocation } from "react-router-dom";
 import Notification from "../../assets/svg/Notifications.svg";
 import Image from "../../assets/svg/image.svg";
 import CountryImage from "../../assets/svg/usa.svg";
-import { handleLogout } from "../../helper";
 import { PageTitle } from "../../helper/keyConstants";
 import Search from "../search";
 import Typography from "../typography";
@@ -53,16 +51,11 @@ const Navbar = () => {
     : location.pathname.split("/").pop() || "";
 
   return (
-    <header className="sticky left-0 top-0 z-10 bg-white">
-      <nav className="grid pr-10 grid-flow-col items-center grid-cols-[20%_auto] pt-5">
+    <header className="bg-white py-5 lg:py-0 pb-5 lg:pb-3">
+      <nav className="grid grid-flow-col items-center justify-between lg:justify-normal grid-cols-[20%_auto] pt-7">
         <div>
           <div>
-            <Typography
-              type="h1"
-              className="text-xl"
-              weight="medium"
-              variant="textXl"
-            >
+            <Typography type="h1" className="md:text-xl" weight="medium">
               {PageTitle[getTitleEnum as keyof typeof PageTitle]}
             </Typography>
           </div>
@@ -70,10 +63,10 @@ const Navbar = () => {
 
         <div>
           <div className="grid grid-flow-col justify-between items-center grid-cols-[50%_auto_auto]">
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <Search onSearch={onSearch} />
             </div>
-            <div className="md:hidden">
+            <div className="lg:hidden">
               {!clicked ? (
                 <div onClick={handleMobileOpening}>
                   <RxHamburgerMenu size={25} />
@@ -85,7 +78,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-5">
               <img src={CountryImage} alt="country" />
               <div>
                 <Typography type="p" children="Eng (US)" weight="medium" />
@@ -93,7 +86,7 @@ const Navbar = () => {
               <MdOutlineKeyboardArrowDown />
             </div>
 
-            <div className="hidden md:flex items-center gap-5 ">
+            <div className="hidden lg:flex items-center gap-5 ">
               <div className="flex gap-5">
                 <img src={Notification} alt="notification" />
                 <img src={Image} alt="image" className="w-12" />
@@ -124,7 +117,7 @@ const Navbar = () => {
         <AnimatePresence mode="wait">
           {clicked && (
             <motion.div
-              className="w-full block md:hidden absolute right-0 top-16 h-screen bg-gray-50 overflow-y-scroll"
+              className="w-full block lg:hidden absolute right-0 top-20 bg-white h-screen overflow-y-scroll"
               variants={variant}
               animate="visible"
               initial="hidden"
@@ -134,21 +127,13 @@ const Navbar = () => {
                 <div className="my-7">
                   <Search onSearch={onSearch} />
                 </div>
-                <div className="flex items-center gap-5 ">
-                  <div className="bg-orange-200 rounded-full flex items-center justify-center w-8 h-8">
-                    Logo
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Typography type="p" children="Delicious Burger" />
-                    <MdOutlineKeyboardArrowDown />
-                  </div>
 
+                <div className="flex items-center gap-5 pb-4">
+                  <img src={CountryImage} alt="country" />
                   <div>
-                    <IoNotifications />
+                    <Typography type="p" children="Eng (US)" weight="medium" />
                   </div>
-                  <div>
-                    <IoLogOutOutline onClick={handleLogout} />
-                  </div>
+                  <MdOutlineKeyboardArrowDown />
                 </div>
               </div>
             </motion.div>
