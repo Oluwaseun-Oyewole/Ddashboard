@@ -1,6 +1,12 @@
 export const enum Routes {
   base = "/",
+
+  //   auth
+  auth = "/auth",
+  login = "/auth/login",
+
   // dashboard
+
   dashboard = "/app/dashboard",
   leaderBoard = "/app/leaderBoard",
   order = "/app/order",

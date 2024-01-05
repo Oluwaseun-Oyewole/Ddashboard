@@ -1,7 +1,11 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
+import { isAuthenticated, isUnAuthenticated } from "../helper";
+import AuthLayout from "../layouts/auth";
 import DashboardLayout from "../layouts/dashboard";
 import ErrorPage from "../views/error";
+import { authenticationRoutes } from "./auth.routes";
 import { dashboardRoutes } from "./dashboard.routes";
+import RouteProtection from "./routeProtection";
 import { Routes } from "./routes";
 
 const routes = createBrowserRouter([
@@ -12,8 +16,25 @@ const routes = createBrowserRouter([
   },
 
   {
+    path: Routes.auth,
+    element: (
+      <RouteProtection
+        validations={[isUnAuthenticated]}
+        redirect={Routes.dashboard}
+      >
+        <AuthLayout />
+      </RouteProtection>
+    ),
+    children: [...authenticationRoutes()],
+  },
+
+  {
     path: "/app",
-    element: <DashboardLayout />,
+    element: (
+      <RouteProtection redirect={Routes.login} validations={[isAuthenticated]}>
+        <DashboardLayout />
+      </RouteProtection>
+    ),
     children: [...dashboardRoutes()],
   },
 ]);

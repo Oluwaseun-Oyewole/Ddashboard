@@ -4,10 +4,13 @@ import Reality from "../../assets/svg/reality.svg";
 import Target from "../../assets/svg/target.svg";
 import { CustomChart } from "../../components/chart";
 import Typography from "../../components/typography";
-import { DashboardCard } from "../../helper/keyConstants";
+import { DashboardCard, Products } from "../../helper/keyConstants";
 
 const Dashboard = () => {
   const colors = ["#FFE2E5", "#FFF4DE", "#DCFCE7", "#F3E8FF"];
+  const borderColors = ["#fff", "#0095FF", "00E58F", "#884DFF", "#FF8900"];
+  const backgroundColors = ["#fff", "#CDE7FF", "#8CFAC7", "#C5A8FF", "#FFD5A4"];
+  const textColors = ["#000", "#0095FF", "00E58F", "#884DFF", "#FF8900"];
 
   const updatedCards = DashboardCard.map((card) => {
     switch (card.id) {
@@ -160,7 +163,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="mt-5 grid grid-cols-4 gap-5">
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
             <Typography
               type="p"
               children="Total Revenue"
@@ -188,7 +191,7 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
             <div>
               <div>
                 <Typography
@@ -211,16 +214,53 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="mt-5 grid grid-cols-4 gap-5">
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
             <Typography
               type="p"
               children="Top Products"
               weight="medium"
               variant="textMd"
             />
+
+            <div className="flex gap-4 flex-col">
+              {Products?.map((item, index) => {
+                return (
+                  <div
+                    className="flex items-center justify-between border-b-2 border-gray-100 pb-4 pt-6 text-xs md:text-sm"
+                    key={index}
+                  >
+                    <Typography
+                      type="p"
+                      children={item.index}
+                      className="!text-xs md:text-sm"
+                    />
+                    <Typography
+                      type="p"
+                      children={item.title}
+                      className="!text-xs md:text-sm"
+                    />
+                    <div>
+                      <div className="w-[10%]"> {item.popularity}</div>
+                    </div>
+                    <div
+                      className={`${
+                        item.sales === "Sales" ? "" : "rounded-lg"
+                      } text-sm px-4 py-1`}
+                      style={{
+                        backgroundColor: backgroundColors[index],
+                        border: `1px solid ${borderColors[index]}`,
+                        color: `${textColors[index]}`,
+                      }}
+                    >
+                      {item.sales}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2 pb-5">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2 pb-5">
             <Typography
               type="p"
               children="Target Vs Reality"
@@ -293,7 +333,7 @@ const Dashboard = () => {
             Five
           </div>
 
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
             <Typography
               type="p"
               children="Volume Vs Service Level"

@@ -55,3 +55,40 @@ export const DashboardCard = [
     image: Customer,
   },
 ];
+
+export const Products = [
+  {
+    index: "#",
+    title: "Name",
+    popularity: "Popularity",
+    sales: "Sales",
+  },
+
+  {
+    index: "01",
+    title: "Home Decor Range",
+    popularity: "75%",
+    sales: "45%",
+  },
+
+  {
+    index: "02",
+    title: "Disney Princess Pink Bag 18",
+    popularity: "65%",
+    sales: "29%",
+  },
+
+  {
+    index: "03",
+    title: "Bathroom Essentials",
+    popularity: "55%",
+    sales: "18%",
+  },
+
+  {
+    index: "04",
+    title: "Apple Smartwatches",
+    popularity: "30%",
+    sales: "25%",
+  },
+];
