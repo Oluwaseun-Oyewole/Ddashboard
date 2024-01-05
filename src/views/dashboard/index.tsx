@@ -75,8 +75,19 @@ const Dashboard = () => {
     },
   ];
 
+  const columnSeries = [
+    {
+      name: "Volume",
+      data: [700, 550, 600, 500, 450, 850, 500],
+    },
+
+    {
+      name: "Services",
+      data: [410, 400, 700, 700, 400, 700, 400],
+    },
+  ];
   return (
-    <div className="">
+    <div>
       <div>
         <div className="grid grid-cols-3 gap-5">
           <div className="bg-white px-5 pt-5 rounded-lg shadow-sm col-span-3 xl:col-span-2">
@@ -209,7 +220,7 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2 pb-5">
             <Typography
               type="p"
               children="Target Vs Reality"
@@ -277,8 +288,33 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {/* <div className="col-span-3 lg:col-span-1">Five</div>
-        <div className="col-span-3 lg:col-span-2">Six</div> */}
+        <div className="mt-5 grid grid-cols-4 gap-5">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+            Five
+          </div>
+
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+            <Typography
+              type="p"
+              children="Volume Vs Service Level"
+              variant="textMd"
+              weight="medium"
+            />
+
+            <div>
+              <CustomChart
+                id="column-chart"
+                type="bar"
+                colors={["#0095FF", "#00E096"]}
+                series={columnSeries}
+                stacked
+                categories={[]}
+                label={[]}
+                xaxisLabel={false}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

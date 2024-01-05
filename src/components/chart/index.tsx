@@ -37,6 +37,7 @@ export const CustomChart: FC<Props> = ({
   categories,
   curve,
   showDownloads,
+  stacked,
 }) => {
   const yaxisOptions = {
     show: true,
@@ -94,6 +95,7 @@ export const CustomChart: FC<Props> = ({
         opacity: 0.2,
         color: "grey",
       },
+      stacked: stacked,
     },
     labels: label,
     xaxis: {
