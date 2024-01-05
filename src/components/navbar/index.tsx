@@ -16,28 +16,6 @@ const Navbar = () => {
     setClicked(!clicked);
   };
 
-  const variant = {
-    hidden: { opacity: 0, x: 500 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        duration: 0.621,
-        stiffness: 150,
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: 500,
-      transition: {
-        type: "spring",
-        duration: 1,
-        delay: 0.2,
-      },
-    },
-  };
-
   const onSearch = () => {
     console.log("searching for something..");
   };

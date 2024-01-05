@@ -330,7 +330,25 @@ const Dashboard = () => {
         </div>
         <div className="mt-5 grid grid-cols-4 gap-5">
           <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
-            Five
+            <div>
+              <div>
+                <Typography
+                  type="p"
+                  children="Top Sales"
+                  weight="medium"
+                  variant="textMd"
+                />
+              </div>
+              <CustomChart
+                id="area-chart"
+                type="area"
+                colors={["#07E098", "#0095FF"]}
+                series={areaSeries}
+                categories={months}
+                curve=""
+                xaxisLabel={false}
+              />
+            </div>
           </div>
 
           <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
