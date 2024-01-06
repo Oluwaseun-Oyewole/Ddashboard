@@ -1,6 +1,6 @@
 import { toast, ToastOptions } from "react-hot-toast";
 
-export class PakamToasts {
+export class Toasts {
   static success(message: string, options?: ToastOptions) {
     return toast.success(message, {
       ...options,
@@ -12,7 +12,7 @@ export class PakamToasts {
     });
   }
 
-  static error(message: string, options?: ToastOptions, isSupport?: boolean) {
+  static error(message: string, options?: ToastOptions) {
     return toast.error(message, {
       ...options,
       style: {

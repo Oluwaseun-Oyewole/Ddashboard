@@ -2,6 +2,14 @@
 import { FC } from "react";
 import Chart from "react-apexcharts";
 
+type TCurve =
+  | "smooth"
+  | "straight"
+  | "stepline"
+  | "smooth"
+  | "straight"
+  | "stepline";
+
 type Props = {
   id: string | "bar-chart";
   series: any | undefined;
@@ -19,7 +27,7 @@ type Props = {
   showGrid?: boolean;
   categories?: Array<string>;
   label?: Array<string>;
-  curve?: string;
+  curve?: TCurve | TCurve[];
   showDownloads?: boolean;
 };
 
@@ -51,7 +59,7 @@ export const CustomChart: FC<Props> = ({
         fontFamily: "Poppins",
       },
 
-      align: "right",
+      // align: "right",
       // minWidth: 0,
       // maxWidth: 160,
       formatter: (value: any) => {
@@ -163,9 +171,8 @@ export const CustomChart: FC<Props> = ({
     stroke: {
       show: true,
       colors: colors,
-      curve: curve ?? "",
+      curve: curve,
     },
-
     colors: colors,
   };
 

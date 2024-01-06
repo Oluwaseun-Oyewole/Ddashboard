@@ -148,7 +148,7 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2 xl:col-span-1">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-4 xl:col-span-1">
             <Typography type="p" children="Visitor Insight" weight="medium" />
             <CustomChart
               id="line-chart"
@@ -345,7 +345,7 @@ const Dashboard = () => {
                 colors={["#07E098", "#0095FF"]}
                 series={areaSeries}
                 categories={months}
-                curve=""
+                // curve=""
                 xaxisLabel={false}
               />
             </div>
