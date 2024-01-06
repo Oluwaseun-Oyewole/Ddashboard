@@ -329,7 +329,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="mt-5 grid grid-cols-4 gap-5">
-          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-3 lg:col-span-2">
+          <div className="bg-white px-5 pt-3 rounded-lg shadow-sm col-span-4 lg:col-span-2">
             <div>
               <div>
                 <Typography
